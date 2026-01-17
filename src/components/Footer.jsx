@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/creloy_logo-removebg-preview.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="container footer-content">
                 <div className="footer-brand">
-                    <h2 className="gradient-text">Creloy</h2>
+                    <img src={logo} alt="Creloy Logo" className="footer-logo" />
                     <p>Where your ideas become perfect designs.</p>
                 </div>
                 <div className="footer-bottom">

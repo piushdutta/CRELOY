@@ -12,19 +12,26 @@ const Landing = () => {
                 <Hero />
                 <Services />
                 <section id="portfolio" className="container" style={{ textAlign: 'center' }}>
-                    <h2 className="section-title">Selected <span className="gradient-text">Works</span></h2>
-                    <p className="section-subtitle">Coming soon... we are currently perfecting our latest creations.</p>
+                    <div className="section-header">
+                        <h2 className="section-title">Selected <span className="gradient-text">Works</span></h2>
+                        <p className="section-subtitle">Coming soon... we are currently perfecting our latest creations to wow you.</p>
+                    </div>
                     <div style={{
-                        marginTop: '4rem',
-                        height: '400px',
-                        background: 'var(--glass)',
-                        borderRadius: '24px',
+                        marginTop: '2rem',
+                        minHeight: '400px',
+                        background: 'rgba(212, 175, 55, 0.02)',
+                        borderRadius: '32px',
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        border: '1px dashed var(--glass-border)'
+                        border: '1px dashed var(--glass-border)',
+                        padding: '2rem'
                     }}>
-                        <p style={{ color: 'var(--text-dim)' }}>Project Showcase Gallery</p>
+                        <div className="gold-glow" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>🎨</div>
+                        <p style={{ color: 'var(--text-dim)', fontSize: '1.2rem', maxWidth: '400px' }}>
+                            Our creative gallery is under construction. Stay tuned for stunning designs!
+                        </p>
                     </div>
                 </section>
             </main>

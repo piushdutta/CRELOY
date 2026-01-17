@@ -54,7 +54,8 @@ const Auth = () => {
             <Link to="/" className="back-link">← Back to Home</Link>
             <div className="auth-card glass">
                 <div className="auth-header">
-                    <p dangerouslySetInnerHTML={{ __html: isLogin ? 'Login to continue your journey' : 'Join Creloy and bring your ideas to life' }} />
+                    <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+                    <p>{isLogin ? 'Login to continue your journey' : 'Join Creloy and bring your ideas to life'}</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="auth-form">

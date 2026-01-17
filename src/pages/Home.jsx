@@ -31,10 +31,10 @@ const Home = () => {
                 <div className="welcome-banner glass">
                     <div className="banner-text">
                         <h1>Welcome back, <span className="gradient-text">{user.name || user.email.split('@')[0] || 'User'}</span>!</h1>
-                        <p>You have successfully logged in to your Creloy dashboard.</p>
-                        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
-                            <button className="btn-primary" style={{ padding: '0.8rem 2rem', borderRadius: '12px', fontWeight: '600' }}>New Project</button>
-                            <button onClick={handleLogout} className="btn-outline" style={{ border: '1px solid var(--glass-border)', background: 'var(--glass)', color: 'var(--text-dim)', padding: '0.8rem 1.5rem', borderRadius: '12px', fontSize: '0.9rem' }}>
+                        <p>You have successfully logged in to your Creloy dashboard. Explore your projects and analytics below.</p>
+                        <div className="banner-actions" style={{ marginTop: '2.5rem', display: 'flex', gap: '1.5rem' }}>
+                            <button className="btn-main">Create New Project</button>
+                            <button onClick={handleLogout} className="btn-outline" style={{ padding: '1.1rem 2.5rem' }}>
                                 Logout
                             </button>
                         </div>
@@ -58,11 +58,20 @@ const Home = () => {
 
                 <div className="recent-activity glass">
                     <h3>Recent Activity</h3>
-                    <div className="activity-item">
-                        <div className="activity-icon">🚀</div>
-                        <div className="activity-info">
-                            <p className="activity-title">Account Created</p>
-                            <p className="activity-time">Just now</p>
+                    <div className="activity-list">
+                        <div className="activity-item">
+                            <div className="activity-icon">🚀</div>
+                            <div className="activity-info">
+                                <p className="activity-title">Account Created</p>
+                                <p className="activity-time">Just now</p>
+                            </div>
+                        </div>
+                        <div className="activity-item">
+                            <div className="activity-icon">✨</div>
+                            <div className="activity-info">
+                                <p className="activity-title">Theme Updated</p>
+                                <p className="activity-time">A few moments ago</p>
+                            </div>
                         </div>
                     </div>
                 </div>
