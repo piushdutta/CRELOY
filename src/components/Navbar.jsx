@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/creloy_logo-removebg-preview.png';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const Navbar = () => {
     const [user, setUser] = useState(null);
+    const { cart } = useCart();
     const location = useLocation();
 
     useEffect(() => {
@@ -29,21 +31,28 @@ const Navbar = () => {
                 <div className="container nav-content">
                     <div className="nav-links">
                         <Link to="/">Home</Link>
-                        <a href="#services">Services</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <div className="nav-auth">
-                            {user ? (
-                                <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-                                    <Link to="/home" className="nav-item">Dashboard</Link>
-                                    <button onClick={handleLogout} className="btn-primary">Logout</button>
-                                </div>
-                            ) : (
-                                <Link to="/auth" className="btn-primary">Login / Sign Up</Link>
-                            )}
-                        </div>
+                        <Link to="/marketplace">Marketplace</Link>
+                        <Link to="/editor">Creative Mode</Link>
+                        <Link to="/cart" className="nav-cart">
+                            <span>Cart</span>
+                            {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
+                        </Link>
                     </div>
                 </div>
             </nav>
+            <div className="auth-fixed">
+                {user ? (
+                    <div className="auth-user-links">
+                        <Link to="/home" className="nav-item">Dashboard</Link>
+                        <button onClick={handleLogout} className="btn-primary">Logout</button>
+                    </div>
+                ) : (
+                    <div className="auth-guest-links">
+                        <Link to="/auth?mode=login" className="nav-item">Login</Link>
+                        <Link to="/auth?mode=signup" className="btn-primary">Sign Up</Link>
+                    </div>
+                )}
+            </div>
         </>
     );
 };

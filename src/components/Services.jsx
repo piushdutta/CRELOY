@@ -1,46 +1,43 @@
 import React from 'react';
 import './Services.css';
 
-const services = [
-    {
-        title: 'Brand Identity',
-        description: 'We craft unique visual identities that reflect your brands essence and values.',
-        icon: '✨'
-    },
-    {
-        title: 'UI/UX Design',
-        description: 'Creating intuitive and engaging digital interfaces that prioritize user experience.',
-        icon: '📱'
-    },
-    {
-        title: 'Digital Strategy',
-        description: 'Strategic planning to ensure your brand stands out in the digital landscape.',
-        icon: '🎯'
-    },
-    {
-        title: 'Web Development',
-        description: 'Turning beautiful designs into high-performance, responsive websites.',
-        icon: '💻'
-    }
-];
-
 const Services = () => {
+    const services = [
+        {
+            title: "Exclusive Logos",
+            description: "Unique, vector-ready visual identities crafted for high-end brands. Fully customizable in our Creative Mode.",
+            icon: "💎",
+            link: "/marketplace?category=Logo"
+        },
+        {
+            title: "Business Cards",
+            description: "Sophisticated stationery designs that leave a lasting impression. Available in various finishes and textures.",
+            icon: "📇",
+            link: "/marketplace?category=Business Card"
+        },
+        {
+            title: "Posters & Media",
+            description: "Dynamic visual assets for digital marketing and print. High-resolution exports guaranteed.",
+            icon: "🖼️",
+            link: "/marketplace?category=Poster"
+        }
+    ];
+
     return (
-        <section id="services" className="services">
-            <div className="container">
-                <div className="section-header">
-                    <h2 className="section-title">What We <span className="gradient-text">Do</span></h2>
-                    <p className="section-subtitle">Our expertise at your service</p>
-                </div>
-                <div className="services-grid">
-                    {services.map((service, index) => (
-                        <div key={index} className="service-card glass">
-                            <div className="service-icon">{service.icon}</div>
-                            <h3>{service.title}</h3>
-                            <p>{service.description}</p>
-                        </div>
-                    ))}
-                </div>
+        <section id="services" className="container h-full">
+            <div className="section-header">
+                <span className="badge">Our Expertise</span>
+                <h2 className="section-title">Elevate Your <span className="gradient-text">Brand</span></h2>
+                <p className="section-subtitle">Choose from our curated collection of elite design assets or create something entirely new.</p>
+            </div>
+            <div className="services-grid">
+                {services.map((service, index) => (
+                    <div className="service-card glass" key={index} onClick={() => window.location.href = service.link}>
+                        <div className="service-icon">{service.icon}</div>
+                        <h3>{service.title}</h3>
+                        <p>{service.description}</p>
+                    </div>
+                ))}
             </div>
         </section>
     );

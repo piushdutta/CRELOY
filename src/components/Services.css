@@ -27,7 +27,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 70%);
+    background: radial-gradient(circle at top right, rgba(197, 160, 89, 0.08), transparent 70%);
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -35,7 +35,7 @@
 .service-card:hover {
     transform: translateY(-15px);
     border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(197, 160, 89, 0.15);
 }
 
 .service-card:hover::before {
@@ -46,7 +46,7 @@
     font-size: 3rem;
     margin-bottom: 2rem;
     display: inline-block;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.25));
 }
 
 .service-card h3 {

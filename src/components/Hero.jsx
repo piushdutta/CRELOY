@@ -4,24 +4,25 @@ import './Hero.css';
 
 const Hero = () => {
     return (
-        <section id="home" className="hero">
-            <div className="container hero-content">
-                <div className="badge glass">Design Redefined</div>
+        <section className="hero container">
+            <div className="hero-content">
+                <div className="badge gold-glow">The Future of Design</div>
                 <h1 className="hero-title">
-                    Where Your <span className="gradient-text">Ideas</span> <br />
-                    Become <span className="gradient-text">Perfect Designs</span>
+                    Digital Design <span className="gradient-text">Marketplace</span>
                 </h1>
                 <p className="hero-subtitle">
-                    At Creloy, we merge creativity with precision to craft digital experiences
-                    that captivate, inspire, and deliver results.
+                    Discover premium logos, business cards, and posters. Customize them in real-time and own your brand identity with Creloy.
                 </p>
                 <div className="hero-actions">
-                    <Link to="/auth" className="btn-main">Start a Project</Link>
-                    <a href="#portfolio" className="btn-outline">View Portfolio</a>
+                    <Link to="/marketplace" className="btn-main">Browse Designs</Link>
+                    <Link to="/editor" className="btn-outline">Creative Mode</Link>
                 </div>
-                <div className="hero-visual glass">
-                    {/* A placeholder for a 3D-like or abstract element */}
-                    <div className="abstract-shape"></div>
+            </div>
+
+            <div className="hero-visual">
+                <div className="abstract-shape"></div>
+                <div className="security-shield" style={{ position: 'absolute', top: '20px', right: '20px', opacity: 0.5, fontSize: '0.8rem' }}>
+                    🛡️ Protected by Creloy Security
                 </div>
             </div>
         </section>

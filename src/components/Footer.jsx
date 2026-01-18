@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/creloy_logo-removebg-preview.png';
 import './Footer.css';
 
@@ -17,6 +18,7 @@ const Footer = () => {
                         <a href="#">Instagram</a>
                         <a href="#">LinkedIn</a>
                     </div>
+                    <Link to="/admin-login" className="admin-portal-link">Admin Area</Link>
                 </div>
             </div>
         </footer>
