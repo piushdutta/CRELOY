@@ -22,6 +22,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/editor" element={<Editor />} />
+            <Route path="/customize" element={<Editor />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />

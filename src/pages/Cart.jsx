@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
@@ -6,6 +7,7 @@ import './Cart.css';
 
 const Cart = () => {
     const { cart, removeFromCart, cartTotal, clearCart } = useCart();
+    const navigate = useNavigate();
 
     return (
         <div className="cart-page">
@@ -22,7 +24,7 @@ const Cart = () => {
                         <div className="cart-icon">🛒</div>
                         <h2>Your cart is empty</h2>
                         <p>Discover unique designs in our marketplace</p>
-                        <button className="btn-primary" onClick={() => window.location.href = '/marketplace'}>Browse Marketplace</button>
+                        <button className="btn-primary" onClick={() => navigate('/marketplace')}>Browse Marketplace</button>
                     </div>
                 ) : (
                     <div className="cart-layout">

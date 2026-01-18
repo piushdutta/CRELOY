@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SecurityOverlay from '../components/SecurityOverlay';
@@ -10,6 +11,8 @@ const Marketplace = () => {
     const { assets, addToCart } = useCart();
 
     const filteredAssets = filter === 'All' ? assets : assets.filter(a => a.category === filter);
+
+    const navigate = useNavigate();
 
     return (
         <div className="marketplace-page">
@@ -44,7 +47,7 @@ const Marketplace = () => {
                                 <img src={asset.image} alt={asset.title} />
                                 <div className="asset-overlay">
                                     <button onClick={() => addToCart(asset)} className="btn-cart">Add to Cart</button>
-                                    <button className="btn-editor" onClick={() => window.location.href = '/editor'}>Customize</button>
+                                    <button className="btn-editor" onClick={() => navigate('/editor')}>Customize</button>
                                 </div>
                             </div>
                             <div className="asset-info">

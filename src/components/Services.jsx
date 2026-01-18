@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Services.css';
 
 const Services = () => {
+    const navigate = useNavigate();
     const services = [
         {
             title: "Exclusive Logos",
@@ -32,7 +34,7 @@ const Services = () => {
             </div>
             <div className="services-grid">
                 {services.map((service, index) => (
-                    <div className="service-card glass" key={index} onClick={() => window.location.href = service.link}>
+                    <div className="service-card glass" key={index} onClick={() => navigate(service.link)}>
                         <div className="service-icon">{service.icon}</div>
                         <h3>{service.title}</h3>
                         <p>{service.description}</p>

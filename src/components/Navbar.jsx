@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/creloy_logo-removebg-preview.png';
 import { useCart } from '../context/CartContext';
 import './Navbar.css';
@@ -8,6 +8,7 @@ const Navbar = () => {
     const [user, setUser] = useState(null);
     const { cart } = useCart();
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -17,7 +18,7 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem('currentUser');
         setUser(null);
-        window.location.href = '/';
+        navigate('/');
     };
 
     return (
