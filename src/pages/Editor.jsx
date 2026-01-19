@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import SecurityOverlay from '../components/SecurityOverlay';
 import './Editor.css';
 
 const Editor = () => {
+    const location = useLocation();
+    const passedAsset = location.state?.asset;
+
     const [config, setConfig] = useState({
-        primaryColor: '#c5a059',
+        primaryColor: passedAsset?.category === 'Business Card' ? '#1a1a1c' : '#c5a059',
         secondaryColor: '#ffffff',
-        text: 'YOUR BRAND NAME',
+        text: passedAsset?.title || 'YOUR BRAND NAME',
         fontSize: 42,
-        borderRadius: 12
+        borderRadius: passedAsset?.category === 'Business Card' ? 8 : 12
     });
 
     const handleChange = (e) => {

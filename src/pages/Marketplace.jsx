@@ -47,7 +47,7 @@ const Marketplace = () => {
                                 <img src={asset.image} alt={asset.title} />
                                 <div className="asset-overlay">
                                     <button onClick={() => addToCart(asset)} className="btn-cart">Add to Cart</button>
-                                    <button className="btn-editor" onClick={() => navigate('/editor')}>Customize</button>
+                                    <button className="btn-editor" onClick={() => navigate('/editor', { state: { asset } })}>Customize</button>
                                 </div>
                             </div>
                             <div className="asset-info">

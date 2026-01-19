@@ -1,24 +1,30 @@
-import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/creloy_logo-removebg-preview.png';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
-    const [user, setUser] = useState(null);
+    const { user, logout } = useAuth();
     const { cart } = useCart();
     const location = useLocation();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        setUser(currentUser);
-    }, [location]);
-
     const handleLogout = () => {
-        localStorage.removeItem('currentUser');
-        setUser(null);
+        logout();
         navigate('/');
+    };
+
+    const scrollToAuth = (e) => {
+        const hash = e.currentTarget.getAttribute('href').split('#')[1];
+        if (location.pathname === '/') {
+            e.preventDefault();
+            window.location.hash = hash;
+            const section = document.getElementById('auth-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     };
 
     return (
@@ -49,8 +55,8 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className="auth-guest-links">
-                        <Link to="/auth?mode=login" className="nav-item">Login</Link>
-                        <Link to="/auth?mode=signup" className="btn-primary">Sign Up</Link>
+                        <Link to="/#login" onClick={scrollToAuth} className="nav-item">Login</Link>
+                        <Link to="/#signup" onClick={scrollToAuth} className="btn-primary">Sign Up</Link>
                     </div>
                 )}
             </div>

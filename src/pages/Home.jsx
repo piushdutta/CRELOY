@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './Home.css';
 
 const Home = () => {
-    const [user, setUser] = useState(null);
+    const { user, logout } = useAuth();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (!currentUser) {
-            navigate('/auth');
-        } else {
-            setUser(currentUser);
-        }
-    }, [navigate]);
-
     const handleLogout = () => {
-        localStorage.removeItem('currentUser');
+        logout();
         navigate('/');
     };
 

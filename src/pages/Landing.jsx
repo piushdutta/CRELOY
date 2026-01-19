@@ -1,10 +1,13 @@
-import React from 'react';
+
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Footer from '../components/Footer';
+import AuthSection from '../components/AuthSection';
+import { useAuth } from '../context/AuthContext';
 
 const Landing = () => {
+    const { user } = useAuth();
     return (
         <div className="landing">
             <Navbar />
@@ -16,24 +19,26 @@ const Landing = () => {
                         <h2 className="section-title">Selected <span className="gradient-text">Works</span></h2>
                         <p className="section-subtitle">Coming soon... we are currently perfecting our latest creations to wow you.</p>
                     </div>
-                    <div style={{
-                        marginTop: '2rem',
-                        minHeight: '400px',
-                        background: 'rgba(212, 175, 55, 0.02)',
-                        borderRadius: '32px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '1px dashed var(--glass-border)',
-                        padding: '2rem'
+                    <div className="works-grid" style={{
+                        marginTop: '4rem',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gap: '2.5rem'
                     }}>
-                        <div className="gold-glow" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>🎨</div>
-                        <p style={{ color: 'var(--text-dim)', fontSize: '1.2rem', maxWidth: '400px' }}>
-                            Our creative gallery is under construction. Stay tuned for stunning designs!
-                        </p>
+                        {[
+                            { title: 'Aether Branding', cat: 'Logo Design', img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800' },
+                            { title: 'Gold Reserve', cat: 'Business Card', img: 'https://images.unsplash.com/photo-1598124838120-020cb1277a94?auto=format&fit=crop&q=80&w=800' },
+                            { title: 'Nova Studio', cat: 'Marketplace Asset', img: 'https://images.unsplash.com/photo-1572044162444-ad60f128bde2?auto=format&fit=crop&q=80&w=800' }
+                        ].map((work, i) => (
+                            <div key={i} className="work-item glassmorphism" style={{ padding: '1rem', borderRadius: '24px', textAlign: 'left' }}>
+                                <img src={work.img} alt={work.title} style={{ width: '100%', height: '220px', objectFit: 'cover', borderRadius: '16px', marginBottom: '1.5rem' }} />
+                                <span style={{ color: 'var(--primary)', fontSize: '0.9rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>{work.cat}</span>
+                                <h3 style={{ fontSize: '1.5rem', marginTop: '0.5rem' }}>{work.title}</h3>
+                            </div>
+                        ))}
                     </div>
                 </section>
+                {!user && <AuthSection />}
             </main>
             <Footer />
         </div>
