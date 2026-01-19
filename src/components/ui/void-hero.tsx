@@ -6,7 +6,6 @@ import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.j
 import { Bloom, N8AO, SMAA, EffectComposer } from '@react-three/postprocessing'
 import { useRef } from "react";
 import { Mesh } from "three";
-import { KernelSize } from "postprocessing";
 
 export function Shape() {
     const meshRef = useRef<Mesh>(null);
@@ -29,11 +28,11 @@ export function Shape() {
         <>
             <mesh ref={meshRef}>
                 <meshPhysicalMaterial
-                    roughness={0}
-                    metalness={0.95}
+                    roughness={0.1}
+                    metalness={0.2}
                     clearcoat={1}
                     clearcoatRoughness={0.1}
-                    color="#000000"
+                    color="#4a3728"
                 />
 
                 <Geometry>
@@ -52,8 +51,8 @@ export function Shape() {
             <mesh ref={innerSphereRef}>
                 <sphereGeometry args={[0.8, 32, 32]} />
                 <meshPhysicalMaterial
-                    color="#ffffff"
-                    emissive={"white"}
+                    color="#d2b48c"
+                    emissive={"#d2b48c"}
                     emissiveIntensity={1}
                 />
             </mesh>
@@ -67,36 +66,36 @@ export function Environment() {
 
             <directionalLight
                 position={[-5, 5, -5]}
-                intensity={0.2}
-                color="#e6f3ff"
+                intensity={0.4}
+                color="#f4f1ea"
             />
 
             <directionalLight
                 position={[0, -5, 10]}
-                intensity={0.4}
-                color="#fff5e6"
+                intensity={0.6}
+                color="#d2b48c"
             />
 
-            <ambientLight intensity={0.8} color="#404040" />
+            <ambientLight intensity={0.5} color="#f4f1ea" />
 
             <pointLight
                 position={[8, 3, 8]}
-                intensity={0.2}
-                color="#ffeecc"
+                intensity={0.4}
+                color="#6d5644"
                 distance={20}
             />
 
             <pointLight
                 position={[-8, 3, -8]}
-                intensity={0.2}
-                color="#ccf0ff"
+                intensity={0.4}
+                color="#a7a88d"
                 distance={20}
             />
 
             <directionalLight
                 position={[0, -10, 0]}
-                intensity={0.2}
-                color="#f0f0f0"
+                intensity={0.3}
+                color="#ffffff"
             />
         </>
     );
@@ -107,22 +106,17 @@ export function Scene() {
         <Canvas
             className="w-full h-full"
             camera={{ position: [5, 5, 5], fov: 50 }}
+            gl={{ alpha: true }}
         >
             <Environment />
             <Shape />
             <EffectComposer multisampling={0}>
-                <N8AO color="black" aoRadius={2} intensity={1} aoSamples={6} denoiseSamples={4} />
+                <N8AO color="#4a3728" aoRadius={2} intensity={1} aoSamples={6} denoiseSamples={4} />
                 <Bloom
                     kernelSize={3}
                     luminanceThreshold={0}
                     luminanceSmoothing={0.4}
-                    intensity={0.6}
-                />
-                <Bloom
-                    kernelSize={KernelSize.HUGE}
-                    luminanceThreshold={0}
-                    luminanceSmoothing={0}
-                    intensity={0.5}
+                    intensity={0.4}
                 />
                 <SMAA />
             </EffectComposer>
@@ -139,7 +133,7 @@ function Navbar({ links }: { links: Array<{ name: string; href: string }> }) {
                     <li key={link.name}>
                         <a
                             href={link.href}
-                            className="text-sm font-light tracking-[0.2em] mix-blend-difference text-white hover:opacity-70 transition-opacity duration-300"
+                            className="text-sm font-bold tracking-[0.2em] text-[#4a3728] hover:opacity-70 transition-opacity duration-300"
                         >
                             {link.name}
                         </a>
@@ -152,7 +146,7 @@ function Navbar({ links }: { links: Array<{ name: string; href: string }> }) {
                     <li key={link.name}>
                         <a
                             href={link.href}
-                            className="text-xs font-light tracking-[0.15em] mix-blend-difference text-white hover:opacity-70 transition-opacity duration-300"
+                            className="text-xs font-bold tracking-[0.15em] text-[#4a3728] hover:opacity-70 transition-opacity duration-300"
                         >
                             {link.name}
                         </a>
@@ -171,16 +165,16 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ title, description, links }) => {
     return (
-        <div className="h-svh w-screen relative bg-[#0A0A0A]">
+        <div className="h-svh w-screen relative bg-transparent">
             <Navbar links={links} />
             <div className="absolute inset-0">
                 <Scene />
             </div>
             <div className="absolute bottom-4 left-4 md:bottom-10 md:left-10 z-20 max-w-md">
-                <h1 className="text-2xl md:text-3xl font-light tracking-tight mb-3 text-white">
+                <h1 className="text-2xl md:text-4xl font-serif tracking-tight mb-3 text-[#4a3728]">
                     {title}
                 </h1>
-                <p className="font-mono text-xs md:text-sm leading-relaxed font-light tracking-tight text-white/50">
+                <p className="text-xs md:text-sm leading-relaxed font-light tracking-tight text-[#4a3728]/70">
                     {description}
                 </p>
             </div>

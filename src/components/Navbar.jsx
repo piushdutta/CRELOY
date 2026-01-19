@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/creloy_logo-removebg-preview.png';
 import { useCart } from '../context/CartContext';
@@ -15,29 +16,22 @@ const Navbar = () => {
         navigate('/');
     };
 
-    const scrollToAuth = (e) => {
-        const hash = e.currentTarget.getAttribute('href').split('#')[1];
-        if (location.pathname === '/') {
-            e.preventDefault();
-            window.location.hash = hash;
-            const section = document.getElementById('auth-section');
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
+
+
+    const [activeLink, setActiveLink] = useState('signup');
 
     return (
         <>
             <div className="logo-fixed">
-                <Link to="/">
+                <Link to="/admin-login">
                     <img src={logo} alt="Creloy Logo" className="logo-img" />
                 </Link>
             </div>
-            <nav className="navbar glass">
+            <nav className="navbar">
                 <div className="container nav-content">
                     <div className="nav-links">
                         <Link to="/">Home</Link>
+                        <a href="#about">About</a>
                         <Link to="/marketplace">Marketplace</Link>
                         <Link to="/editor">Creative Mode</Link>
                         <Link to="/cart" className="nav-cart">
@@ -54,9 +48,24 @@ const Navbar = () => {
                         <button onClick={handleLogout} className="btn-primary">Logout</button>
                     </div>
                 ) : (
-                    <div className="auth-guest-links">
-                        <Link to="/#login" onClick={scrollToAuth} className="nav-item">Login</Link>
-                        <Link to="/#signup" onClick={scrollToAuth} className="btn-primary">Sign Up</Link>
+                    <div className="auth-guest-links" onMouseLeave={() => setActiveLink('signup')}>
+                        <div className="auth-highlight" style={{
+                            transform: `translateX(${activeLink === 'signup' ? '100%' : '0%'})`
+                        }} />
+                        <Link
+                            to="/auth#login"
+                            className={`nav-item ${activeLink === 'login' ? 'active-link' : ''}`}
+                            onMouseEnter={() => setActiveLink('login')}
+                        >
+                            Login
+                        </Link>
+                        <Link
+                            to="/auth#signup"
+                            className={`btn-primary ${activeLink === 'signup' ? 'active-link' : ''}`}
+                            onMouseEnter={() => setActiveLink('signup')}
+                        >
+                            Sign Up
+                        </Link>
                     </div>
                 )}
             </div>

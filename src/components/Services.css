@@ -15,9 +15,9 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    background: rgba(10, 10, 10, 0.8);
+    background: var(--surface);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 .service-card::before {
@@ -27,7 +27,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(197, 160, 89, 0.08), transparent 70%);
+    background: radial-gradient(circle at top right, rgba(167, 168, 141, 0.15), transparent 70%);
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -35,7 +35,8 @@
 .service-card:hover {
     transform: translateY(-15px);
     border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(197, 160, 89, 0.15);
+    box-shadow: 0 30px 60px rgba(74, 55, 40, 0.08);
+    background: var(--background);
 }
 
 .service-card:hover::before {
@@ -46,7 +47,7 @@
     font-size: 3rem;
     margin-bottom: 2rem;
     display: inline-block;
-    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.25));
+    filter: drop-shadow(0 0 10px rgba(74, 55, 40, 0.1));
 }
 
 .service-card h3 {
@@ -55,6 +56,7 @@
     font-weight: 700;
     color: var(--text);
     letter-spacing: -0.5px;
+    font-family: var(--font-heading);
 }
 
 .service-card p {

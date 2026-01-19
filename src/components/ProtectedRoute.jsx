@@ -12,7 +12,7 @@ const ProtectedRoute = ({ children }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: '#0a0a0b',
+                background: 'var(--background)',
                 color: 'var(--primary)'
             }}>
                 <div className="loader">Loading...</div>
@@ -21,8 +21,8 @@ const ProtectedRoute = ({ children }) => {
     }
 
     if (!user) {
-        // Redirect to Landing page with #login hash
-        return <Navigate to="/#login" state={{ from: location }} replace />;
+        // Redirect to Auth page
+        return <Navigate to="/auth" state={{ from: location }} replace />;
     }
 
     return children;

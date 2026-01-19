@@ -72,9 +72,9 @@ const AuthSection = () => {
     };
 
     return (
-        <section id="auth-section" className="auth-section-container" style={{ padding: '8rem 0', background: '#050505' }}>
+        <section id="auth-section" className="auth-section-container">
             <div className="container">
-                <div className="auth-wrapper glassmorphism" style={{ margin: '0 auto', gridTemplateColumns: '1fr 1fr' }}>
+                <div className="auth-wrapper" style={{ margin: '0 auto', maxWidth: '500px', gridTemplateColumns: '1fr' }}>
                     <div className="auth-card">
                         <div className="auth-tabs">
                             <button
@@ -161,24 +161,6 @@ const AuthSection = () => {
                                     {!isLoading && <span className="arrow">→</span>}
                                 </button>
                             </form>
-                        </div>
-                    </div>
-
-                    <div className="auth-info-aside">
-                        <div className="aside-content">
-                            <h3>Where your ideas become <span className="gradient-text">perfect designs</span>.</h3>
-                            <p>Join over 2,000+ creators and businesses who bring their vision to life with Creloy.</p>
-
-                            <div className="trust-badges">
-                                <div className="badge">
-                                    <span className="badge-count">99%</span>
-                                    <span className="badge-label">Precision</span>
-                                </div>
-                                <div className="badge">
-                                    <span className="badge-count">24/7</span>
-                                    <span className="badge-label">Support</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

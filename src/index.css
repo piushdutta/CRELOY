@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #c5a059;
-  /* Sophisticated Metallic Gold */
-  --primary-bright: #e5c17b;
-  /* Champagne Highlight */
-  --primary-dark: #8c6b37;
-  /* Bronzed Shadow */
-  --secondary: #1a1a1c;
-  /* Deep Charcoal */
-  --accent: #c5a059;
-  --background: #0a0a0b;
-  /* Midnight Ebony */
-  --surface: #141416;
-  /* Dark Surface */
-  --text: #f5f5f7;
-  /* Off-white for readability */
-  --text-dim: #8e8e93;
-  /* Subtle Gray */
-  --glass: rgba(18, 18, 20, 0.75);
-  --glass-border: rgba(197, 160, 89, 0.15);
-  /* Tinted glass border */
+  --primary: #4a3728;
+  /* Deep Earthy Brown */
+  --primary-bright: #6d5644;
+  /* Medium Brown */
+  --primary-dark: #2d1f15;
+  /* Dark Chocolate */
+  --secondary: #a7a88d;
+  /* Muted Olive Green */
+  --accent: #d2b48c;
+  /* Tan / Sand */
+  --background: #f4f1ea;
+  /* Soft Cream */
+  --surface: #eeebe3;
+  /* Light Beige */
+  --text: #4a3728;
+  /* Primary Brown for text */
+  --text-dim: #7c6a5a;
+  /* Muted Brown for body */
+  --glass: rgba(244, 241, 234, 0.85);
+  --glass-border: rgba(74, 55, 40, 0.1);
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-heading: 'Playfair Display', serif;
 
-  --gradient-primary: linear-gradient(135deg, #c5a059 0%, #e5c17b 50%, #8c6b37 100%);
-  --gradient-gold: linear-gradient(90deg, #8c6b37, #c5a059, #e5c17b, #c5a059, #8c6b37);
-  --gradient-glow: radial-gradient(circle at center, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+  --gradient-primary: linear-gradient(135deg, #4a3728 0%, #6d5644 100%);
+  --gradient-gold: linear-gradient(90deg, #2d1f15, #4a3728, #6d5644, #4a3728, #2d1f15);
+  --gradient-glow: radial-gradient(circle at center, rgba(167, 168, 141, 0.15) 0%, transparent 70%);
 
   font-family: var(--font-main);
   line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: dark;
+  color-scheme: light;
   color: var(--text);
   background-color: var(--background);
 
@@ -73,8 +73,9 @@ body {
   overflow-x: hidden;
   background-color: var(--background);
   background-image:
-    radial-gradient(at 0% 0%, rgba(197, 160, 89, 0.03) 0, transparent 40%),
-    radial-gradient(at 100% 100%, rgba(197, 160, 89, 0.03) 0, transparent 40%);
+    radial-gradient(at 50% 0%, rgba(167, 168, 141, 0.1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(210, 180, 140, 0.1) 0, transparent 40%),
+    radial-gradient(at 0% 100%, rgba(109, 86, 68, 0.05) 0, transparent 50%);
   position: relative;
 }
 
@@ -86,8 +87,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.015;
-  /* Even more subtle noise */
+  opacity: 0.025;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -101,8 +101,9 @@ h5,
 h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 a {

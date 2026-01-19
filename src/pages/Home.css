@@ -76,7 +76,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+    filter: drop-shadow(0 0 10px rgba(74, 55, 40, 0.2));
 }
 
 .recent-activity {
@@ -110,8 +110,8 @@
 }
 
 .activity-item:hover {
-    background: rgba(212, 175, 55, 0.05);
-    border-color: rgba(212, 175, 55, 0.1);
+    background: rgba(74, 55, 40, 0.05);
+    border-color: rgba(74, 55, 40, 0.1);
     transform: translateX(10px);
 }
 

@@ -6,9 +6,14 @@ import './Hero.css';
 const Hero = () => {
     return (
         <section className="hero-section">
+            <div className="hero-blobs">
+                <div className="hero-blob b1"></div>
+                <div className="hero-blob b2"></div>
+                <div className="hero-blob b3"></div>
+            </div>
             <div className="container hero-container">
                 <div className="hero-content">
-                    <div className="badge gold-glow">The Future of Design</div>
+                    <div className="badge">The Future of Design</div>
                     <h1 className="hero-title">
                         Digital Design <span className="gradient-text">Marketplace</span>
                     </h1>
@@ -24,9 +29,6 @@ const Hero = () => {
                 <div className="hero-visual-side">
                     <div className="scene-container">
                         <Scene />
-                    </div>
-                    <div className="security-shield">
-                        🛡️ Protected by Creloy Security
                     </div>
                 </div>
             </div>

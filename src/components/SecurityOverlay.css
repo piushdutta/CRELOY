@@ -17,7 +17,7 @@
     transform: translate(-50%, -50%) rotate(-45deg);
     font-size: 8vw;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.02);
+    color: rgba(74, 55, 40, 0.03);
     white-space: nowrap;
     user-select: none;
     letter-spacing: 20px;
@@ -29,7 +29,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(244, 241, 234, 0.9);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -43,8 +43,9 @@
     max-width: 450px;
     text-align: center;
     border-radius: 32px;
-    border: 1px solid rgba(255, 77, 77, 0.3);
-    background: rgba(20, 10, 10, 0.8);
+    border: 1px solid var(--glass-border);
+    background: var(--surface);
+    box-shadow: 0 40px 100px -20px rgba(74, 55, 40, 0.15);
 }
 
 .alert-icon {
@@ -53,9 +54,10 @@
 }
 
 .security-alert-box h3 {
-    color: #ff4d4d;
+    color: var(--primary);
     font-size: 1.8rem;
     margin-bottom: 1rem;
+    font-family: var(--font-heading);
 }
 
 .security-alert-box p {
@@ -66,7 +68,7 @@
 
 .alert-progress {
     height: 3px;
-    background: #ff4d4d;
+    background: var(--primary);
     width: 100%;
     animation: progressOut 5s linear forwards;
 }
