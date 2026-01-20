@@ -7,7 +7,6 @@ import Editor from './pages/Editor';
 import Cart from './pages/Cart';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
-import DemoOne from './pages/DemoOne';
 import AuthPage from './pages/AuthPage';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
@@ -24,13 +23,12 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
               <Route path="/marketplace" element={<ProtectedRoute><Marketplace /></ProtectedRoute>} />
-              <Route path="/editor" element={<ProtectedRoute><Editor /></ProtectedRoute>} />
-              <Route path="/customize" element={<ProtectedRoute><Editor /></ProtectedRoute>} />
+              <Route path="/editor" element={<Editor />} />
+              <Route path="/customize" element={<Editor />} />
               <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/admin-login" element={<AdminLogin />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              <Route path="/demo" element={<DemoOne />} />
             </Routes>
           </div>
         </Router>

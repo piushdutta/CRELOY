@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import SecurityOverlay from '../components/SecurityOverlay';
 import './Editor.css';
 
 const Editor = () => {
@@ -23,7 +22,6 @@ const Editor = () => {
 
     return (
         <div className="editor-page">
-            <SecurityOverlay />
             <Navbar />
 
             <div className="editor-container">

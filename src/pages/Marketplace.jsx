@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import SecurityOverlay from '../components/SecurityOverlay';
 import { useCart } from '../context/CartContext';
 import './Marketplace.css';
 
@@ -16,7 +15,6 @@ const Marketplace = () => {
 
     return (
         <div className="marketplace-page">
-            <SecurityOverlay />
             <Navbar />
 
             <header className="marketplace-header">

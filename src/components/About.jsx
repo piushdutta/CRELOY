@@ -1,8 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './About.css';
 import creolyVideo from '../assets/creoly video.mp4';
 
 const About = () => {
+    const { user } = useAuth();
+    const navigate = useNavigate();
+
+    const handleKnowMore = () => {
+        if (!user) {
+            navigate('/auth#login');
+        } else {
+            // Logic for authenticated users - could scroll to more info or navigate to a dashboard
+            console.log("Logged in user clicked Know More");
+        }
+    };
+
     return (
         <section id="about" className="about-section">
             <div className="container">
@@ -15,7 +29,7 @@ const About = () => {
                         <p className="about-description">
                             Creloy is a premier digital marketplace where creativity meets precision. We empower designers and businesses by providing high-end, customizable assets that define brand identities. Our platform is built on the belief that every idea deserves to be perfect, and every creator deserves a secure space to showcase their brilliance.
                         </p>
-                        <button className="btn-main know-more-btn">
+                        <button className="btn-main know-more-btn" onClick={handleKnowMore}>
                             Know More <span className="arrow">→</span>
                         </button>
                     </div>

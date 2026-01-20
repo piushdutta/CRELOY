@@ -73,95 +73,93 @@ const AuthSection = () => {
 
     return (
         <section id="auth-section" className="auth-section-container">
-            <div className="container">
-                <div className="auth-wrapper" style={{ margin: '0 auto', maxWidth: '500px', gridTemplateColumns: '1fr' }}>
-                    <div className="auth-card">
-                        <div className="auth-tabs">
-                            <button
-                                className={`tab-btn ${isLogin ? 'active' : ''}`}
-                                onClick={() => setIsLogin(true)}
-                            >
-                                Login
-                            </button>
-                            <button
-                                className={`tab-btn ${!isLogin ? 'active' : ''}`}
-                                onClick={() => setIsLogin(false)}
-                            >
-                                Sign Up
-                            </button>
+            <div className="auth-wrapper">
+                <div className="auth-card">
+                    <div className="auth-tabs">
+                        <button
+                            className={`tab-btn ${isLogin ? 'active' : ''}`}
+                            onClick={() => setIsLogin(true)}
+                        >
+                            Login
+                        </button>
+                        <button
+                            className={`tab-btn ${!isLogin ? 'active' : ''}`}
+                            onClick={() => setIsLogin(false)}
+                        >
+                            Sign Up
+                        </button>
+                    </div>
+
+                    <div className="auth-content">
+                        <div className="auth-header">
+                            <h2>{isLogin ? 'Welcome Back' : 'Create Account'}</h2>
+                            <p>{isLogin ? 'Enter your credentials to access your account' : 'Fill in the details to start your creative journey'}</p>
                         </div>
 
-                        <div className="auth-content">
-                            <div className="auth-header">
-                                <h2>{isLogin ? 'Welcome Back' : 'Create Account'}</h2>
-                                <p>{isLogin ? 'Enter your credentials to access your account' : 'Fill in the details to start your creative journey'}</p>
+                        <form onSubmit={handleSubmit} className="auth-form">
+                            {!isLogin && (
+                                <div className="input-group">
+                                    <label>Full Name</label>
+                                    <div className="input-field">
+                                        <i className="input-icon">👤</i>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Your Name"
+                                            required
+                                            onChange={handleChange}
+                                            value={formData.name}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                            <div className="input-group">
+                                <label>Email Address</label>
+                                <div className="input-field">
+                                    <i className="input-icon">✉️</i>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="email@example.com"
+                                        required
+                                        onChange={handleChange}
+                                        value={formData.email}
+                                    />
+                                </div>
+                            </div>
+                            <div className="input-group">
+                                <label>Password</label>
+                                <div className="input-field">
+                                    <i className="input-icon">🔒</i>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="••••••••"
+                                        required
+                                        onChange={handleChange}
+                                        value={formData.password}
+                                    />
+                                </div>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="auth-form">
-                                {!isLogin && (
-                                    <div className="input-group">
-                                        <label>Full Name</label>
-                                        <div className="input-field">
-                                            <i className="input-icon">👤</i>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                placeholder="Your Name"
-                                                required
-                                                onChange={handleChange}
-                                                value={formData.name}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                                <div className="input-group">
-                                    <label>Email Address</label>
-                                    <div className="input-field">
-                                        <i className="input-icon">✉️</i>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            placeholder="email@example.com"
-                                            required
-                                            onChange={handleChange}
-                                            value={formData.email}
-                                        />
-                                    </div>
+                            {isLogin && (
+                                <div className="forgot-pass">
+                                    <a href="#">Forgot password?</a>
                                 </div>
-                                <div className="input-group">
-                                    <label>Password</label>
-                                    <div className="input-field">
-                                        <i className="input-icon">🔒</i>
-                                        <input
-                                            type="password"
-                                            name="password"
-                                            placeholder="••••••••"
-                                            required
-                                            onChange={handleChange}
-                                            value={formData.password}
-                                        />
-                                    </div>
+                            )}
+
+                            {error && (
+                                <div className="error-alert">
+                                    <span className="alert-icon">⚠️</span>
+                                    {error}
                                 </div>
+                            )}
 
-                                {isLogin && (
-                                    <div className="forgot-pass">
-                                        <a href="#">Forgot password?</a>
-                                    </div>
-                                )}
-
-                                {error && (
-                                    <div className="error-alert">
-                                        <span className="alert-icon">⚠️</span>
-                                        {error}
-                                    </div>
-                                )}
-
-                                <button type="submit" className={`submit-btn ${isLoading ? 'loading' : ''}`} disabled={isLoading}>
-                                    <span>{isLoading ? 'Processing...' : (isLogin ? 'Connect' : 'Get Started')}</span>
-                                    {!isLoading && <span className="arrow">→</span>}
-                                </button>
-                            </form>
-                        </div>
+                            <button type="submit" className={`submit-btn ${isLoading ? 'loading' : ''}`} disabled={isLoading}>
+                                <span>{isLoading ? 'Processing...' : (isLogin ? 'Connect' : 'Get Started')}</span>
+                                {!isLoading && <span className="arrow">→</span>}
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
