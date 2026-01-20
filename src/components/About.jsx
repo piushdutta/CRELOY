@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import creolyVideo from '../assets/creoly video.mp4';
 
 const About = () => {
     return (
@@ -20,10 +21,13 @@ const About = () => {
                     </div>
                     <div className="about-visual">
                         <div className="about-image-wrapper">
-                            <img
-                                src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
-                                alt="Creative Design Workspace"
+                            <video
+                                src={creolyVideo}
                                 className="about-img"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
                             />
                             <div className="about-accent-box"></div>
                         </div>
