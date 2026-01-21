@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './Auth.css'; // Reusing Auth styles
+import Navbar from '../components/Navbar';
+import './Auth.css';
 
 const AdminLogin = () => {
     const [email, setEmail] = useState('');
@@ -20,41 +21,76 @@ const AdminLogin = () => {
 
     return (
         <div className="auth-page">
-            <Link to="/" className="back-home-btn" style={{ position: 'absolute', top: '2.5rem', left: '2.5rem', zIndex: 10 }}>
-                <span className="icon">←</span>
-                <span className="text">Back to Home</span>
-            </Link>
+            <Navbar />
 
-            <div className="auth-card glassmorphism">
-                <div className="auth-header text-center">
-                    <h2>Admin Access</h2>
-                    <p>Enter administrative credentials</p>
-                </div>
-                <form onSubmit={handleSubmit} className="auth-form">
-                    <div className="input-group">
-                        <label>Admin Email</label>
-                        <input
-                            type="email"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="input-group">
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    {error && <p className="error-alert">{error}</p>}
-                    <button type="submit" className="submit-btn">Login as Admin</button>
-                </form>
+            <button
+                onClick={() => navigate(-1)}
+                className="back-home-btn"
+                style={{ cursor: 'pointer', border: 'none', background: 'none' }}
+            >
+                <span style={{ fontSize: '1.2rem' }}>←</span> Back
+            </button>
+
+            <div className="auth-bg-elements">
+                <div className="blob blob-1"></div>
+                <div className="blob blob-2"></div>
             </div>
+
+            <section className="auth-section-container">
+                <div className="auth-wrapper">
+                    <div className="auth-card">
+                        <div className="auth-header">
+                            <h2>Admin Access</h2>
+                            <p>Enter administrative credentials to proceed</p>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className="auth-form">
+                            <div className="input-group">
+                                <label>Admin Email</label>
+                                <div className="input-field">
+                                    <i className="input-icon">✉️</i>
+                                    <input
+                                        type="email"
+                                        required
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="admin@creloy.com"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="input-group">
+                                <label>Password</label>
+                                <div className="input-field">
+                                    <i className="input-icon">🔒</i>
+                                    <input
+                                        type="password"
+                                        required
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="••••••••"
+                                    />
+                                </div>
+                            </div>
+
+                            {error && (
+                                <div className="error-alert">
+                                    <span className="alert-icon">⚠️</span>
+                                    {error}
+                                </div>
+                            )}
+
+                            <button type="submit" className="submit-btn">
+                                <span>Login as Admin</span>
+                                <span className="arrow">→</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
 
 export default AdminLogin;
+

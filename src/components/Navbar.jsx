@@ -18,7 +18,7 @@ const Navbar = () => {
 
 
 
-    const isAuthPage = location.pathname === '/auth';
+    const isAuthPage = location.pathname === '/auth' || location.pathname === '/admin-login';
     const isLandingPage = location.pathname === '/';
     const [activeLink, setActiveLink] = useState('signup');
     const [showDropdown, setShowDropdown] = useState(false);
